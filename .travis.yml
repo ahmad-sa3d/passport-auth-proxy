@@ -1,6 +1,6 @@
 env:
   global:
-    - CC_TEST_REPORTER_ID=
+    - CC_TEST_REPORTER_ID=9bc80979b7edd91459812f11edc6c34ff10fdf1f5fcf008b488ffc8b1be77ad6
 
 notifications:
   slack: a7madsa3d:NV7CXXB4FMHOLUIuBQ81RbQe
@@ -19,5 +19,5 @@ script:
   - vendor/bin/phpunit --coverage-text --coverage-clover build/logs/clover.xml
 
 after_script:
-  - CODECLIMATE_REPO_TOKEN= vendor/bin/test-reporter --stdout > codeclimate.json
+  - CODECLIMATE_REPO_TOKEN=9bc80979b7edd91459812f11edc6c34ff10fdf1f5fcf008b488ffc8b1be77ad6 vendor/bin/test-reporter --stdout > codeclimate.json
   - "sh -c 'curl -X POST -d @codeclimate.json -H \"Content-Type: application/json\" -H \"User-Agent: Code Climate PHP Test reporter\" https://codeclimate.com/test_reports ;'"

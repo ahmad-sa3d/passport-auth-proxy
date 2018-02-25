@@ -6,8 +6,8 @@
 
 <p align="center">
 <a href="https://travis-ci.org/ahmad-sa3d/passport-auth-proxy"><img src="https://travis-ci.org/ahmad-sa3d/passport-auth-proxy.svg?branch=master" alt="Build Status"></a>
-<a href="https://codeclimate.com/github/ahmad-sa3d/passport-auth-proxy/maintainability"><img src="https://api.codeclimate.com/v1/badges/84d709814a320dc85f0a/maintainability" /></a>
-<a href="https://codeclimate.com/github/ahmad-sa3d/passport-auth-proxy/test_coverage"><img src="https://api.codeclimate.com/v1/badges/84d709814a320dc85f0a/test_coverage" /></a>
+<a href="https://codeclimate.com/github/ahmad-sa3d/passport-auth-proxy/maintainability"><img src="https://api.codeclimate.com/v1/badges/e66380b53a7de2b85c0d/maintainability" /></a>
+<a href="https://codeclimate.com/github/ahmad-sa3d/passport-auth-proxy/test_coverage"><img src="https://api.codeclimate.com/v1/badges/e66380b53a7de2b85c0d/test_coverage" /></a>
 <a href="https://packagist.org/packages/saad/passport-auth-proxy"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
