@@ -32,6 +32,6 @@ class InvalidCredentialsException extends Exception
 		return (new JsonResponseBuilder())
 				->error($this->getMessage(), 401)
 				->setMessage('Invalid Credentials!')
-				->getResponse();
+				->getResponse(401);
 	}
 }
