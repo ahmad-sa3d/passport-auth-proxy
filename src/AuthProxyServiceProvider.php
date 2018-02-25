@@ -4,6 +4,7 @@ namespace Saad\Passport;
 use Carbon\Carbon;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Passport\Passport;
+use Optimus\ApiConsumer\Provider\LaravelServiceProvider;
 use Saad\Passport\AuthProxy;
 use Saad\Passport\Contracts\AuthProxyContract;
 
@@ -29,6 +30,7 @@ class AuthProxyServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
+		$this->app->register(LaravelServiceProvider::class);
 		$this->app->bind(AuthProxyContract::class, AuthProxy::class);
 	}
 }
