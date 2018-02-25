@@ -12,14 +12,16 @@
 
 namespace Saad\Passport;
 
-use Saad\Passport\Contracts\AuthProxyContract;
-use Saad\Passport\Exceptions\InvalidCredentialsException;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Cookie\CookieJar;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
+use League\OAuth2\Server\ResourceServer;
 use Optimus\ApiConsumer\Router;
+use Saad\Passport\Contracts\AuthProxyContract;
+use Saad\Passport\Exceptions\InvalidCredentialsException;
+use Symfony\Bridge\PsrHttpMessage\Factory\DiactorosFactory;
 
 class AuthProxy implements AuthProxyContract
 {
@@ -52,6 +54,12 @@ class AuthProxy implements AuthProxyContract
 	 * @var String
 	 */
 	protected $client_secret;
+
+	/**
+	 * oAuth ressource server
+	 * @var League\OAuth2\Server\ResourceServer
+	 */
+	protected $resource_server;
 
 	/**
 	 * Http Only Refresh Token
@@ -253,5 +261,24 @@ class AuthProxy implements AuthProxyContract
 			false,
 			true
 		);
+	}
+
+	/**
+	 * Get User Id from access token
+	 * @param  string $access_token Access Token
+	 * @return integer|null               user id OR null if could not be found
+	 */
+	public function getUserIdFromAccessToken($access_token)
+	{
+		$request = Request::createFrom(app()->make('request'));
+		$request->headers->add(['Authorization' => 'Bearer ' . $access_token]);
+		try {
+			$server = app()->make(ResourceServer::class);
+		    $psr = (new DiactorosFactory)->createRequest($request);
+		    $psr = $server->validateAuthenticatedRequest($psr);
+		    return $psr->getAttribute('oauth_user_id');
+		} catch (\Exception $e) {
+			return null;
+		}
 	}
 }
