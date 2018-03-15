@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * @package  saad/passport-auth-proxy
+ *
+ * @author Ahmed Saad <a7mad.sa3d.2014@gmail.com>
+ * @license MIT MIT
+ */
+
 namespace Saad\Passport\Contracts;
 
 interface AuthProxyContract

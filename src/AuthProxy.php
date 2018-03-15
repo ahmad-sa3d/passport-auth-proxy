@@ -7,7 +7,7 @@
  *
  * @package  passport-auth-proxy
  * @author  <a7mad.sa3d.2014@gmail.com>
- * @version  1.0.0 First Release
+ * @version  1.1.0 Release
  */
 
 namespace Saad\Passport;
@@ -85,11 +85,12 @@ class AuthProxy implements AuthProxyContract
 	 * @return array              Tokens
 	 * @throws \Saad\Passport\Exceptions\InvalidCredentialsException If credentials are wrong
 	 */
-	public function attemptLogin($username, $password)
+	public function attemptLogin($username, $password, array $scopes = [])
 	{
 		return $this->proxy('password', [
 			'username' => $username,
 			'password' => $password,
+			'scope' => implode(' ', $scopes),
 		]);
 	}
 

@@ -5,7 +5,7 @@
  * this exception will be converted to json response
  * formatted using JsonResponseBuilder
  *
- * @package  passport-auth-proxy
+ * @package  saad/passport-auth-proxy
  * @author  <a7mad.sa3d.2014@gmail.com>
  * @version  1.0.0 First Release
  */
